@@ -28,7 +28,7 @@
                      </h5>
                      <h5 class="card-subtitle"> {{$space->address}} </h5>
                      <p class="card-text"> {{$space->desctription}} </p>
-                     <a href="#" class="card-link" onclick="openDirection( {{$space->latitude}}, {{$space->longitude}} )">Direction</a>
+                     <a href="#" class="card-link" onclick="openDirection( {{$space->latitude}}, {{$space->longitude}}, {{$space->id}} )">Direction</a>
                   </div>
                   <hr>
                   @endforeach

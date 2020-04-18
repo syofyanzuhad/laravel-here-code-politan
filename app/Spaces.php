@@ -21,14 +21,15 @@ class Spaces extends Model
                     ->selectRaw(
                         '( 6371 *
                             acos( cos( radians(?) ) *
-                            cos( radians( latitude ) ) * 
-                            cos( radians( longitude ) - radians(?) ) *
-                            sin( radians(?) ) *
-                            sin( radians( latitude ) )
+                                cos( radians( latitude ) ) * 
+                                cos( radians( longitude ) - radians(?) ) +
+                                sin( radians(?) ) *
+                                sin( radians( latitude ) )
                             )
                         ) AS distance', [$latitude, $longitude, $latitude]
                     )
-                    ->havingRaw('distance < ?', [$radius])
-                    ->orderBy('distance', 'ASC');
+                    ->havingRaw("distance < ?", [$radius])
+                    ->orderBy('distance', 'asc');
+
     }
 }

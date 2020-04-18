@@ -19,6 +19,6 @@
 
 @push('script')
    <script>
-      window.action = "submit"
+      window.action = "browse"
    </script>
 @endpush
